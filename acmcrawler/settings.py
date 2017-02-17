@@ -19,7 +19,18 @@ NEWSPIDER_MODULE = 'acmcrawler.spiders'
 #USER_AGENT = 'acmcrawler (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+# ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY=False
+
+# Mongodb Configurations
+ITEM_PIPELINES = {
+   'acmcrawler.pipelines.AcmcrawlerPipeline': 200,
+}
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "ACMPaper"
+MONGODB_COLLECTION = "conference"
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
