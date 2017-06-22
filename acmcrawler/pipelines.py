@@ -17,6 +17,7 @@ class AcmcrawlerPipeline(object):
         )
         db = connection[settings['MONGODB_DB']]
         self.collection = db[settings['MONGODB_COLLECTION']]
+
         
     def process_item(self, item, spider):
         valid = True
@@ -26,6 +27,6 @@ class AcmcrawlerPipeline(object):
                 raise DropItem("Missing {0}!".format(data))
         if valid:
             self.collection.insert(dict(item))
-            log.msg("Question added to MongoDB database!",
-                    level=log.DEBUG, spider=spider)
+            # log.msg("Question added to MongoDB database!",
+            #         level=log.DEBUG, spider=spider)
         return item
